@@ -218,7 +218,7 @@ let publishToGithub() =
     // set git tag and release to github
     StageAll ""
     Git.Commit.Commit "" (sprintf "Bump version to %s" release.NugetVersion)
-    Branches.push ""
+    Branches.pushBranch "" "upstream" "master"
 
     Branches.tag "" release.NugetVersion
     Branches.pushTag "" "origin" release.NugetVersion
